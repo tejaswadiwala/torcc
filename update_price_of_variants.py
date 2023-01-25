@@ -1,15 +1,11 @@
 import requests
 from shopify_creds import ShopifyCreds
-import categories
+import categories as c
 
 shopify_creds = ShopifyCreds()
 
 # Change this
-category = categories.ClassicHoodie()
-
-PRICE = category.price
-COMPARE_AT_PRICE = category.compare_at_price
-PRODUCT_NAME_CONTAINS = category.products
+categories = [c.PremiumFrontHoodies(), c.PremiumFrontSweatshirts(), c.PremiumBackSweatshirts(), c.SignatureToronnoHoodies(), c.SignatureToronnoSweatshirt(), c.SignatureWTNHoodies(), c.SignatureWTNSweatshirts(), c.ClassicSweatshirt(), c.ClassicHoodie()]
 
 def main():
     try:
@@ -61,25 +57,29 @@ def main():
 def update_variants(products=None):
     try:
         print(f'Updating variants started.')
-        for product in products:
-            for PRODUCT_NAME_CONTAIN in PRODUCT_NAME_CONTAINS:
-                if PRODUCT_NAME_CONTAIN in product['title']:
-                    variants = product['variants']
-                    for variant in variants:
-                        url = f"https://{shopify_creds.api_key}:{shopify_creds.api_password}@{shopify_creds.shop_name}.myshopify.com/admin/api/2022-10/variants/{variant['id']}.json"
-                        variant_data = create_data_for_updating_variants(product['id'], variant['id'])
-                        response = requests.put(url, json=variant_data, headers=shopify_creds.headers)
-                        if response.status_code == 200:
-                            data = response.json()
-                            print(data)
-                        else:
-                            response.raise_for_status()
+        for category in categories:
+            PRICE = category.price
+            COMPARE_AT_PRICE = category.compare_at_price
+            PRODUCT_NAME_CONTAINS = category.products
+            for product in products:
+                for PRODUCT_NAME_CONTAIN in PRODUCT_NAME_CONTAINS:
+                    if PRODUCT_NAME_CONTAIN in product['title']:
+                        variants = product['variants']
+                        for variant in variants:
+                            url = f"https://{shopify_creds.api_key}:{shopify_creds.api_password}@{shopify_creds.shop_name}.myshopify.com/admin/api/2022-10/variants/{variant['id']}.json"
+                            variant_data = create_data_for_updating_variants(product['id'], variant['id'], PRICE, COMPARE_AT_PRICE)
+                            response = requests.put(url, json=variant_data, headers=shopify_creds.headers)
+                            if response.status_code == 200:
+                                data = response.json()
+                                print(data)
+                            else:
+                                response.raise_for_status()
         print(f'Completed updating variants.')
     except Exception as e:
         print(f'Error occured while updating variants on Shopify: {e}')
         raise
 
-def create_data_for_updating_variants(product_id, variant_id):
+def create_data_for_updating_variants(product_id, variant_id, PRICE, COMPARE_AT_PRICE):
     data = {
     "variant": {
         "id": variant_id,
