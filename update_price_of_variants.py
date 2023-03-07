@@ -1,3 +1,4 @@
+import time
 import requests
 from shopify_creds import ShopifyCreds
 import categories as c
@@ -5,7 +6,10 @@ import categories as c
 shopify_creds = ShopifyCreds()
 
 # Change this
-categories = [c.PremiumFrontHoodies(), c.PremiumFrontSweatshirts(), c.PremiumBackSweatshirts(), c.SignatureToronnoHoodies(), c.SignatureToronnoSweatshirt(), c.SignatureWTNHoodies(), c.SignatureWTNSweatshirts(), c.ClassicSweatshirt(), c.ClassicHoodie()]
+categories = [c.PremiumBackHoodies(), c.PremiumFrontHoodies(), c.PremiumFrontSweatshirts(), c.PremiumBackSweatshirts(), c.SignatureToronnoHoodies(), c.SignatureToronnoSweatshirt(), 
+              c.SignatureWTNHoodies(), c.SignatureWTNSweatshirts(), c.ClassicSweatshirt(), c.ClassicHoodie(), c.TorccCollectionHoodies(), c.TorccCollectionSweatshirts(), c.NewHoodies()]
+
+# categories = [c.Oversized()]
 
 def main():
     try:
@@ -57,6 +61,7 @@ def main():
 def update_variants(products=None):
     try:
         print(f'Updating variants started.')
+        rate_limit_products = []
         for category in categories:
             PRICE = category.price
             COMPARE_AT_PRICE = category.compare_at_price
@@ -72,10 +77,17 @@ def update_variants(products=None):
                             if response.status_code == 200:
                                 data = response.json()
                                 print(data)
+                            elif response.status_code == 429:
+                                print('I am in rate limit.')
+                                rate_limit_products.append(variant['id'])
+                                time.sleep(1)
+                                response = requests.put(url, json=variant_data, headers=shopify_creds.headers)
                             else:
                                 response.raise_for_status()
+        print(f'Products affected by rate limit: {rate_limit_products}')
         print(f'Completed updating variants.')
     except Exception as e:
+        print(f'Products affected by rate limit: {rate_limit_products}')
         print(f'Error occured while updating variants on Shopify: {e}')
         raise
 

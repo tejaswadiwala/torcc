@@ -14,8 +14,8 @@ class PremiumBackHoodies:
         '"Basketball Love" - We The North Edition : Graphic Hoodie for Men and Women',
         '"You Problem - Devil" - Graphic Hoodie Men and Women'
     ]
-        self.price = 59.99
-        self.compare_at_price = 37.99
+        self.price = 44.99
+        self.compare_at_price = 89.98
 
 class PremiumFrontHoodies:
     def __init__(self):
@@ -23,8 +23,8 @@ class PremiumFrontHoodies:
             'MOOD: Graphic Hoodie For Men and Women',
             '1834: Graphic Hoodie for Men and Women'
         ]
-        self.price = 35.99
-        self.compare_at_price = 57.99
+        self.price = 39.99
+        self.compare_at_price = 79.98
 
 class PremiumFrontSweatshirts:
     def __init__(self):
@@ -32,8 +32,8 @@ class PremiumFrontSweatshirts:
             '"MOOD": Sweatshirt for Men and Women',
             '"1834": Sweatshirt for Men and Women'
         ]
-        self.price = 31.99
-        self.compare_at_price = 53.99
+        self.price = 37.99
+        self.compare_at_price = 75.98
 
 class PremiumBackSweatshirts:
     def __init__(self):
@@ -43,8 +43,8 @@ class PremiumBackSweatshirts:
             '"Kindness" - Graphic Crewneck Sweatshirt Women and Men',
             '"Basketball Love" - We The North Edition : Crewneck Sweatshirt for Men and Women'
         ]
-        self.price = 33.99
-        self.compare_at_price = 57.99
+        self.price = 41.99
+        self.compare_at_price = 83.98
 
 class SignatureToronnoHoodies:
     def __init__(self):
@@ -55,7 +55,7 @@ class SignatureToronnoHoodies:
             '"CnTower Toronno": Graphic Hoodie For Men and Women',
             '"SlotToronno": Graphic Hoodie For Men and Women',
         ]
-        self.price = 36.99
+        self.price = 34.99
         self.compare_at_price = 57.99
 
 class SignatureToronnoSweatshirt:
@@ -68,7 +68,7 @@ class SignatureToronnoSweatshirt:
             '"ToronnoWithTCN": Sweatshirt For Men and Women',
             '"TORCC. EST 2022": Sweatshirt For Men and Women'
         ]
-        self.price = 30.99
+        self.price = 31.99
         self.compare_at_price = 53.99
 
 class SignatureWTNHoodies:
@@ -80,8 +80,8 @@ class SignatureWTNHoodies:
             '"#wethenorth" - We The North Edition : Graphic Hoodie for Men and Women',
             '"Wings" We The North Edition : Graphic Hoodie for Men and Women'
         ]
-        self.price = 37.99
-        self.compare_at_price = 59.99
+        self.price = 39.99
+        self.compare_at_price = 79.98
 
 class SignatureWTNSweatshirts:
     def __init__(self):
@@ -92,8 +92,8 @@ class SignatureWTNSweatshirts:
             '"#wethenorth" - We The North Edition : Crewneck Sweatshirt for Men and Women',
             '"Wings" - We The North Edition : Crewneck Sweatshirt for Men and Women'
         ]
-        self.price = 32.99
-        self.compare_at_price = 54.99
+        self.price = 37.99
+        self.compare_at_price = 75.98
 
 class ClassicSweatshirt:
     def __init__(self):
@@ -101,12 +101,76 @@ class ClassicSweatshirt:
             'Classic Sweatshirt'
         ]
         self.price = 29.99
-        self.compare_at_price = 44.99
+        self.compare_at_price = 59.98
 
 class ClassicHoodie:
     def __init__(self):
         self.products = [
             'Classic Hoodie'
         ]
-        self.price = 32.99
-        self.compare_at_price = 47.99
+        self.price = 31.99
+        self.compare_at_price = 63.98
+
+class TorccCollectionHoodies:
+    def __init__(self):
+        self.products = [
+            '"TORCC": Graphic Hoodie for Men',
+            '"TORCC": Graphic Hoodie for Women',
+            '"Inspire": Graphic Hoodie For Women',
+            '"Inspire": Graphic Hoodie For Men',
+            '"Fighter": Graphic Hoodie For Women',
+            '"Fighter": Graphic Hoodie For Men',
+            '"Hope": Graphic Hoodie For Women',
+            '"Hope": Graphic Hoodie For Men',
+            '"Believe": Graphic Hoodie For Women',
+            '"Believe": Graphic Hoodie For Men',
+            '"Hustle": Graphic Hoodie For Women',
+            '"Hustle": Graphic Hoodie For Men',
+            '"Dreamer": Graphic Hoodie For Women',
+            '"Dreamer": Graphic Hoodie For Men'
+        ]
+        self.price = 44.99
+        self.compare_at_price = 89.98
+
+class TorccCollectionSweatshirts:
+    def __init__(self):
+        self.products = [
+            '"Dreamer": Sweatshirt for women',
+            '"Dreamer": Sweatshirt For Men',
+            '"Fighter": Sweatshirt for Men',
+            '"Fighter": Sweatshirt for Women',
+            '"Believe": Sweatshirt for women',
+            '"Believe": Sweatshirt for men',
+            '"Hope": Sweatshirt for Women',
+            '"Hope": Sweatshirt For Men',
+            '"Hustle" : Sweatshirt for Women',
+            '"Inspire" : Sweatshirt for Women',
+            '"Inspire" : Sweatshirt for Men',
+            '"Hustle": Sweatshirt for men'
+        ]
+        self.price = 39.99
+        self.compare_at_price = 79.98
+
+class Oversized:
+    def __init__(self):
+        self.products = [
+            'Oversized'
+        ]
+        self.price = 29.99
+        self.compare_at_price = 34.99
+
+class NewHoodies:
+    def __init__(self):
+        self.products = [
+            '"Nobody Cares": Graphic Hoodie for Men',
+            '"Keep It Rolling": Graphic Hoodie for Men',
+            '"Have a nice trip": Graphic Hoodie for Men',
+            f"\"Damn - That's so 90s\": Graphic Hoodie for Men",
+            '"Nobody Cares": Graphic Hoodie for Women',
+            f'"Have a nice trip": Graphic Hoodie for Women',
+            f"\"Damn - That's so 90s\": Graphic Hoodie for Women",
+            '"Keep It Rolling": Graphic Hoodie for Women',
+            '"Growth": Graphic Hoodie for Women'
+        ]
+        self.price = 44.99
+        self.compare_at_price = 89.98
