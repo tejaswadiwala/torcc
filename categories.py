@@ -14,7 +14,7 @@ class PremiumBackHoodies:
         '"Basketball Love" - We The North Edition : Graphic Hoodie for Men and Women',
         '"You Problem - Devil" - Graphic Hoodie Men and Women'
     ]
-        self.price = 44.99
+        self.price = 63.99
         self.compare_at_price = 89.98
 
 class PremiumFrontHoodies:
@@ -23,7 +23,7 @@ class PremiumFrontHoodies:
             'MOOD: Graphic Hoodie For Men and Women',
             '1834: Graphic Hoodie for Men and Women'
         ]
-        self.price = 39.99
+        self.price = 55.99
         self.compare_at_price = 79.98
 
 class PremiumFrontSweatshirts:
@@ -32,7 +32,7 @@ class PremiumFrontSweatshirts:
             '"MOOD": Sweatshirt for Men and Women',
             '"1834": Sweatshirt for Men and Women'
         ]
-        self.price = 37.99
+        self.price = 52.99
         self.compare_at_price = 75.98
 
 class PremiumBackSweatshirts:
@@ -43,7 +43,7 @@ class PremiumBackSweatshirts:
             '"Kindness" - Graphic Crewneck Sweatshirt Women and Men',
             '"Basketball Love" - We The North Edition : Crewneck Sweatshirt for Men and Women'
         ]
-        self.price = 41.99
+        self.price = 58.99
         self.compare_at_price = 83.98
 
 class SignatureToronnoHoodies:
@@ -55,7 +55,7 @@ class SignatureToronnoHoodies:
             '"CnTower Toronno": Graphic Hoodie For Men and Women',
             '"SlotToronno": Graphic Hoodie For Men and Women',
         ]
-        self.price = 34.99
+        self.price = 48.99
         self.compare_at_price = 57.99
 
 class SignatureToronnoSweatshirt:
@@ -68,7 +68,7 @@ class SignatureToronnoSweatshirt:
             '"ToronnoWithTCN": Sweatshirt For Men and Women',
             '"TORCC. EST 2022": Sweatshirt For Men and Women'
         ]
-        self.price = 31.99
+        self.price = 44.99
         self.compare_at_price = 53.99
 
 class SignatureWTNHoodies:
@@ -80,7 +80,7 @@ class SignatureWTNHoodies:
             '"#wethenorth" - We The North Edition : Graphic Hoodie for Men and Women',
             '"Wings" We The North Edition : Graphic Hoodie for Men and Women'
         ]
-        self.price = 39.99
+        self.price = 55.99
         self.compare_at_price = 79.98
 
 class SignatureWTNSweatshirts:
@@ -92,7 +92,7 @@ class SignatureWTNSweatshirts:
             '"#wethenorth" - We The North Edition : Crewneck Sweatshirt for Men and Women',
             '"Wings" - We The North Edition : Crewneck Sweatshirt for Men and Women'
         ]
-        self.price = 37.99
+        self.price = 52.99
         self.compare_at_price = 75.98
 
 class ClassicSweatshirt:
@@ -100,7 +100,7 @@ class ClassicSweatshirt:
         self.products = [
             'Classic Sweatshirt'
         ]
-        self.price = 29.99
+        self.price = 41.99
         self.compare_at_price = 59.98
 
 class ClassicHoodie:
@@ -108,7 +108,7 @@ class ClassicHoodie:
         self.products = [
             'Classic Hoodie'
         ]
-        self.price = 31.99
+        self.price = 45.99
         self.compare_at_price = 63.98
 
 class TorccCollectionHoodies:
@@ -129,7 +129,7 @@ class TorccCollectionHoodies:
             '"Dreamer": Graphic Hoodie For Women',
             '"Dreamer": Graphic Hoodie For Men'
         ]
-        self.price = 44.99
+        self.price = 63.99
         self.compare_at_price = 89.98
 
 class TorccCollectionSweatshirts:
@@ -148,16 +148,24 @@ class TorccCollectionSweatshirts:
             '"Inspire" : Sweatshirt for Men',
             '"Hustle": Sweatshirt for men'
         ]
-        self.price = 39.99
+        self.price = 55.99
         self.compare_at_price = 79.98
 
-class Oversized:
+class NewSweatshirts: 
     def __init__(self):
         self.products = [
-            'Oversized'
+            'Weekend : Sweatshirt For Men And Women',
+            f"\"Damn That's So 90'S\" : Sweatshirt For Men And Women",
+            '"Have A Nice Trip": Sweatshirt For Men And Women',
+            f"\"Keep It Rollin'\" : Sweatshirt For Men And Women",
+            f"\"Growth'\" : Graphic Sweatshirt For Men And Women",
+            '"Dystopia" : Graphic Sweatshirt For Men And Women',
+            '"LOVE" Sweatshirt For Men And Women : Ranbir Kapoor Sweatshirt In #TJMM'
+            '"Out Of This World": Sweatshirt For Men And Women',
+            'Wish You Were Weird : Sweatshirt For Men And Women'
         ]
-        self.price = 29.99
-        self.compare_at_price = 34.99
+        self.price = 55.99
+        self.compare_at_price = 79.98
 
 class NewHoodies:
     def __init__(self):
@@ -172,5 +180,37 @@ class NewHoodies:
             '"Keep It Rolling": Graphic Hoodie for Women',
             '"Growth": Graphic Hoodie for Women'
         ]
-        self.price = 44.99
+        self.price = 63.99
         self.compare_at_price = 89.98
+
+class Oversized:
+    def __init__(self):
+        self.products = [
+            'Oversized'
+        ]
+        self.price = 34.99
+        self.compare_at_price = 34.99
+
+class Sweatshirt:
+    def __init__(self):
+        self.products = [
+            'Sweatshirt'
+        ]
+        self.price = 39.99
+        self.compare_at_price = 39.99
+
+class Hoodie:
+    def __init__(self):
+        self.products = [
+            'Hoodie'
+        ]
+        self.price = 44.99
+        self.compare_at_price = 44.99
+
+class ClassicTees:
+    def __init__(self):
+        self.products = [
+            'Graphic T-Shirt'
+        ]
+        self.price = 24.99
+        self.compare_at_price = 24.99

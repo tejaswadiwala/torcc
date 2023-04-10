@@ -6,10 +6,11 @@ import categories as c
 shopify_creds = ShopifyCreds()
 
 # Change this
-categories = [c.PremiumBackHoodies(), c.PremiumFrontHoodies(), c.PremiumFrontSweatshirts(), c.PremiumBackSweatshirts(), c.SignatureToronnoHoodies(), c.SignatureToronnoSweatshirt(), 
-              c.SignatureWTNHoodies(), c.SignatureWTNSweatshirts(), c.ClassicSweatshirt(), c.ClassicHoodie(), c.TorccCollectionHoodies(), c.TorccCollectionSweatshirts(), c.NewHoodies()]
+#categories = [c.PremiumBackHoodies(), c.PremiumFrontHoodies(), c.PremiumFrontSweatshirts(), c.PremiumBackSweatshirts(), c.SignatureToronnoHoodies(), c.SignatureToronnoSweatshirt(), 
+#              c.SignatureWTNHoodies(), c.SignatureWTNSweatshirts(), c.ClassicSweatshirt(), c.ClassicHoodie(), c.TorccCollectionHoodies(), c.TorccCollectionSweatshirts(), c.NewHoodies(),
+#             c.Oversized()]
 
-# categories = [c.Oversized()]
+categories = [c.ClassicTees()]
 
 def main():
     try:
@@ -68,6 +69,8 @@ def update_variants(products=None):
             PRODUCT_NAME_CONTAINS = category.products
             for product in products:
                 for PRODUCT_NAME_CONTAIN in PRODUCT_NAME_CONTAINS:
+                    # Uncomment the below line if you want to update T-shirt
+                    # if product['product_type'] == 'T-shirt':
                     if PRODUCT_NAME_CONTAIN in product['title']:
                         variants = product['variants']
                         for variant in variants:
