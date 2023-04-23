@@ -1,3 +1,5 @@
+# This is the most basic way to upload a product
+
 import requests
 import base64
 
@@ -24,12 +26,22 @@ product_data = {
                 'price': '10.00',
                 'sku': 'MYPROD001',
                 'inventory_management': 'shopify',
-                'inventory_quantity': 10
+                'inventory_quantity': 10,
+                'option1': 'Red',
+                'option2': 'S'
             }
         ],
         'images': [
             {
                 'attachment': base64.b64encode(open('automate_design/exports/mockup.png', 'rb').read()).decode('utf-8')
+            }
+        ],
+        'options': [
+            {
+                'name': 'Color'
+            },
+            {
+                'name': 'Size'
             }
         ]
     }
