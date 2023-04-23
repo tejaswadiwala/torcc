@@ -33,7 +33,8 @@ product_data = {
         ],
         'images': [
             {
-                'attachment': base64.b64encode(open('automate_design/exports/mockup.png', 'rb').read()).decode('utf-8')
+                'attachment': base64.b64encode(open('automate_design/exports/mockup.png', 'rb').read()).decode('utf-8'),
+                'filename': 'red'
             }
         ],
         'options': [
