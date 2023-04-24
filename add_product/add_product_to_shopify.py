@@ -8,6 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from torcc.shopify_creds import ShopifyCreds
 from Product import Product
 
+VENDOR = 'TORCC'
+
 # Get Shopify credentials
 sc = ShopifyCreds()
 
@@ -21,8 +23,8 @@ auth = (api_key, password)
 # Change the product below to the required Product
 product = Product.ClassicTee()
 
-VENDOR = 'TORCC'
 NAME = 'Tropical Sunset'
+SIZES = ['Small', 'Medium', 'Large', 'X Large']
 
 def create_product():
     print('Create Product Starting Now. ')
@@ -43,13 +45,13 @@ def create_product():
     # Add images to product data
     images = []
     for filename in os.listdir('add_product/import'):
-        if filename.endswith('.png'):
+        if filename.endswith('.jpg'):
             with open(f'add_product/import/{filename}', 'rb') as image_file:
                 encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
                 images.append({
                     'attachment': encoded_string,
                     'filename': filename,
-                    'alt': filename
+                    'alt': f'{os.path.splitext(filename)[0]} {NAME}{product.title}'
                 })
 
     product_data['product']['images'] = images
@@ -132,7 +134,7 @@ def populate_image_info_mapping(images):
         image_info_mapping = {}
         print(f'Populate Image Info Mapping: Starting now.')
         for image in images:
-            color_name = image['src'].split('/')[-1].split('.')[0].split('_')[0]
+            color_name = image['alt'].split(f'{NAME}{product.title}')[0].strip()
             image_info_mapping[color_name] = image['id']
         print(f'Populate Image Info Mapping: Successfully completed execution.')
         return image_info_mapping
@@ -146,24 +148,22 @@ def create_product_variants_and_options():
     # Set up the variant data
     variants = []
     color_names = []
-    sizes = ['S', 'M', 'L', 'XL']
 
     # Loop through the files in the import folder
     for filename in os.listdir('add_product/import'):
-        if filename.endswith('.png'):
+        if filename.endswith('.jpg'):
             # Extract the color name from the filename
             color_name = filename.split('.')[0]
             color_names.append(color_name)
 
             # Loop through the sizes and add a variant for each size
-            for size in sizes:
+            for size in SIZES:
                 variant = {
                     "title": f'{color_name}-{size}',
                     "option1": color_name,
                     "option2": size,
                     "inventory_management": "shopify",
-                    "price": '10.00',
-                    "sku": f'{color_name}_{size}',
+                    "price": f'{product.price}'
                 }
                 variants.append(variant)
 
@@ -174,7 +174,7 @@ def create_product_variants_and_options():
         },
         {
         "name": "Size",
-        "values": sizes
+        "values": SIZES
         }
     ]
 
