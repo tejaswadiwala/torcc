@@ -33,11 +33,12 @@ def automate_design():
                 final_image.paste(design_image, design_position, design_image)
 
                 # Save the final image in PNG format
-                export_path = os.path.join(export_dir, f"{filename}")
+                export_path = os.path.join(export_dir, f'{filename.split("_", 1)[0]}.png')
                 final_image.save(export_path)
                 print(f'Automate Design: Added design to {export_path}.')
         print('Automate Design: Successfully completed execution.')
     except Exception as e:
         print(f'Automate Design: Error occurred - {e}.')
+        raise
 
 automate_design()
