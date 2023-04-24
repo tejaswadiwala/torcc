@@ -6,6 +6,7 @@ import json
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from torcc.shopify_creds import ShopifyCreds
+from Product import Product
 
 # Get Shopify credentials
 sc = ShopifyCreds()
@@ -17,7 +18,11 @@ password = sc.api_password
 headers = sc.headers
 auth = (api_key, password)
 
-NAME = ''
+# Change the product below to the required Product
+product = Product.ClassicTee()
+
+VENDOR = 'TORCC'
+NAME = 'Tropical Sunset'
 
 def create_product():
     print('Create Product Starting Now. ')
@@ -25,10 +30,11 @@ def create_product():
     # Set up the product data
     product_data = {
         'product': {
-            'title': f'{NAME}: Unisex Graphic T-shirt | Graphic Tees',
-            'body_html': "<p>TORCC studio brings you some quirky graphic tees. </p>\n<ul>\n<li>100% cotton</li>\n<li>Wash cold; dry low</li>\n<li>Imported</li>\n<li>Listed in men's/unisex sizes</li>\n</ul>",
-            'product_type': "T-shirt",
-            'vendor': 'TORCC',
+            'title': f'{NAME}{product.title}',
+            'body_html': f'{product.body_html}',
+            'product_type': f'{product.product_type}',
+            'template_suffix': f'{product.template_suffix}',
+            'vendor': VENDOR,
             'variants': variants, 
             'options': options
         }
@@ -95,7 +101,7 @@ def update_product_variants(product_id, image_info_mapping):
     for variant in variants:
         variant_data = {
             'id': variant['id'],
-            'price': 20, 
+            'price': product.price, 
             'image_id': image_info_mapping[variant['option1']]
         }
         put_endpoint = f'https://{shopify_domain}/admin/api/2023-04/variants/{variant["id"]}.json'
