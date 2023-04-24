@@ -17,14 +17,17 @@ password = sc.api_password
 headers = sc.headers
 auth = (api_key, password)
 
+NAME = ''
+
 def create_product():
     print('Create Product Starting Now. ')
     variants, options = create_product_variants_and_options()
     # Set up the product data
     product_data = {
         'product': {
-            'title': 'My Product1',
-            'body_html': '<p>This is my product description.</p>',
+            'title': f'{NAME}: Unisex Graphic T-shirt | Graphic Tees',
+            'body_html': "<p>TORCC studio brings you some quirky graphic tees. </p>\n<ul>\n<li>100% cotton</li>\n<li>Wash cold; dry low</li>\n<li>Imported</li>\n<li>Listed in men's/unisex sizes</li>\n</ul>",
+            'product_type': "T-shirt",
             'vendor': 'TORCC',
             'variants': variants, 
             'options': options
