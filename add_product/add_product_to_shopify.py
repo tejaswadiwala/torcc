@@ -21,10 +21,10 @@ headers = sc.headers
 auth = (api_key, password)
 
 # Change the product below to the required Product
-product = Product.ClassicTee()
+product = Product.ToteBags()
 
-NAME = 'Tropical Sunset'
-SIZES = ['Small', 'Medium', 'Large', 'X Large']
+NAME = 'Inspire'
+SIZES = ['11L']
 
 def create_product():
     print('Create Product Starting Now. ')
@@ -53,6 +53,8 @@ def create_product():
                     'filename': filename,
                     'alt': f'{os.path.splitext(filename)[0]} {NAME}{product.title}'
                 })
+
+    print(f"Product Data: {json.dumps(product_data)}")
 
     product_data['product']['images'] = images
 
@@ -91,29 +93,36 @@ def get_image_data_for_product(product_id):
 
 # Function to update variants
 def update_product_variants(product_id, image_info_mapping):
-    # Build the endpoint URL
-    endpoint = f'https://{shopify_domain}/admin/api/2023-04/products/{product_id}/variants.json'
+    try: 
+        print('Update Product Variants: Starting now.')
+        # Build the endpoint URL
+        endpoint = f'https://{shopify_domain}/admin/api/2023-04/products/{product_id}/variants.json'
 
-    # Get the existing variants of the product
-    response = requests.get(endpoint, headers=headers, auth=auth)
-    variants = json.loads(response.text)['variants']
-    print(variants)
+        # Get the existing variants of the product
+        response = requests.get(endpoint, headers=headers, auth=auth)
+        variants = json.loads(response.text)['variants']
+        print(f"Update Product Variants: Variants - {variants}")
 
-    # Loop through the existing variants and update the price and inventory_quantity
-    for variant in variants:
-        variant_data = {
-            'id': variant['id'],
-            'price': product.price, 
-            'image_id': image_info_mapping[variant['option1']]
-        }
-        put_endpoint = f'https://{shopify_domain}/admin/api/2023-04/variants/{variant["id"]}.json'
-        response = requests.put(put_endpoint, headers=headers, auth=auth, json={'variant': variant_data})
-        if variant['inventory_quantity'] < 50:
-            update_inventory(variant)
-        if response.status_code == 200:
-            print(f'Variant {variant["id"]} updated successfully')
-        else:
-            print(f'Error updating variant {variant["id"]}: {response.text}')
+        # Loop through the existing variants and update the price and inventory_quantity
+        for variant in variants:
+            variant_data = {
+                'id': variant['id'],
+                'price': product.price, 
+                'image_id': image_info_mapping[variant['option1']]
+            }
+            put_endpoint = f'https://{shopify_domain}/admin/api/2023-04/variants/{variant["id"]}.json'
+            response = requests.put(put_endpoint, headers=headers, auth=auth, json={'variant': variant_data})
+            if variant['inventory_quantity'] < 50:
+                update_inventory(variant)
+            if response.status_code == 200:
+                print(f'Variant {variant["id"]} updated successfully')
+            else:
+                print(f'Error updating variant {variant["id"]}: {response.text}')
+    
+        print('Update Product Variants: Successfully completed execution.')
+    except Exception as e:
+        print(f"Update Product Variants: Error occurred - {e}")
+        raise
 
 def update_inventory(variant):
     url = f'https://{sc.api_key}:{sc.api_password}@{sc.shop_name}.myshopify.com/admin/api/2022-10/inventory_levels/set.json'
@@ -167,7 +176,13 @@ def create_product_variants_and_options():
                 }
                 variants.append(variant)
 
-    options = [
+    options = get_options(color_names)
+
+    print('Create Product Variants Successfully Completed Execution. ')
+    return variants, options
+
+def get_options(color_names): 
+    return [
         {
         "name": "Color",
         "values": color_names
@@ -177,9 +192,6 @@ def create_product_variants_and_options():
         "values": SIZES
         }
     ]
-
-    print('Create Product Variants Successfully Completed Execution. ')
-    return variants, options
 
 if __name__ == '__main__':
     product_id = create_product()
