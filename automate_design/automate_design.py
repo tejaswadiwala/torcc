@@ -4,7 +4,7 @@ from PIL import Image
 from Product import Product
 
 # Set the product directory
-PRODUCT = Product.OversizedTshirt()
+PRODUCT = Product.ToteBags()
 
 # Set up the design image
 design_path = "automate_design/designs/design_1.png"
@@ -33,7 +33,7 @@ def automate_design():
                 final_image = clothing_image.copy()
 
                 # Paste the design image onto the clothing image
-                design_position = (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
+                design_position = get_design_postion(clothing_image)
                 final_image.paste(design_image, design_position, design_image)
 
                 # Save the final image in JPEG format
@@ -52,6 +52,17 @@ def get_max_width_height(clothing_image):
     elif PRODUCT.dir_name == 'classic_tees':
         max_width = int(clothing_image.size[0] / 2)
         max_height = int(clothing_image.size[1] / 2)
+    elif PRODUCT.dir_name == 'tote_bags':
+        max_width = int(clothing_image.size[0] / 3)
+        max_height = int(clothing_image.size[1] / 3)
+    else:
+        max_width = int(clothing_image.size[0] / 2)
+        max_height = int(clothing_image.size[1] / 2)
     return max_width, max_height
+
+def get_design_postion(clothing_image):
+    if PRODUCT.dir_name == 'tote_bags':
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.5))
+    return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
 
 automate_design()

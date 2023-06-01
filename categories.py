@@ -188,8 +188,8 @@ class Oversized:
         self.products = [
             'Oversized'
         ]
-        self.price = 34.99
-        self.compare_at_price = 34.99
+        self.price = 24.99
+        self.compare_at_price = 24.99
 
 class Sweatshirt:
     def __init__(self):
@@ -197,7 +197,7 @@ class Sweatshirt:
             'Sweatshirt'
         ]
         self.price = 39.99
-        self.compare_at_price = 39.99
+        self.compare_at_price = 79.98
 
 class Hoodie:
     def __init__(self):
@@ -205,12 +205,12 @@ class Hoodie:
             'Hoodie'
         ]
         self.price = 44.99
-        self.compare_at_price = 44.99
+        self.compare_at_price = 89.98
 
 class ClassicTees:
     def __init__(self):
         self.products = [
             'Graphic T-Shirt'
         ]
-        self.price = 24.99
-        self.compare_at_price = 24.99
+        self.price = 19.99
+        self.compare_at_price = 19.99
