@@ -53,8 +53,8 @@ def get_max_width_height(clothing_image):
         max_width = int(clothing_image.size[0] / 2)
         max_height = int(clothing_image.size[1] / 2)
     elif PRODUCT.dir_name == 'tote_bags':
-        max_width = int(clothing_image.size[0] / 3)
-        max_height = int(clothing_image.size[1] / 3)
+        max_width = clothing_image.size[0] / 1.8
+        max_height = int(clothing_image.size[1] / 2)
     else:
         max_width = int(clothing_image.size[0] / 2)
         max_height = int(clothing_image.size[1] / 2)
@@ -62,7 +62,7 @@ def get_max_width_height(clothing_image):
 
 def get_design_postion(clothing_image):
     if PRODUCT.dir_name == 'tote_bags':
-        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.5))
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.40))
     return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
 
 automate_design()
