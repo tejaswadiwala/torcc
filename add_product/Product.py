@@ -20,5 +20,5 @@ class Product:
             self.title = ': Tote Bag'
             self.body_html = "<ul><li>Made with 100% soft and breathable cotton material</li><li>Spacious interior to carry all your essentials with ease</li><li>Stylish and versatile design for everyday use</li><li>Reinforced handles for comfortable and secure carrying</li><li>Features a bold graphic print that adds a touch of personality</li><li>Perfect for shopping, traveling, or daily errands</li><li>Eco-friendly choice to reduce single-use plastic bags</li><li>Easy to clean and maintain for long-lasting use</li><li>Express your unique sense of fashion with a TORCC tote bag made from 100% cotton.</li></ul>"
             self.product_type = 'Tote Bag'
-            self.price = 15.99
+            self.price = 24.99
             self.template_suffix = 'template-full-width-2'
