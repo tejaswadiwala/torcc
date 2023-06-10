@@ -214,3 +214,11 @@ class ClassicTees:
         ]
         self.price = 19.99
         self.compare_at_price = 19.99
+
+class ToteBags:
+    def __init__(self):
+        self.products = [
+            'Tote Bag'
+        ]
+        self.price = 24.99
+        self.compare_at_price = 24.99
