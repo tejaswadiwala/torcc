@@ -21,10 +21,12 @@ headers = sc.headers
 auth = (api_key, password)
 
 # Change the product below to the required Product
-product = Product.ToteBags()
+product = Product.ToteTshirtCoordSet()
 
 NAME = 'Inspire'
 SIZES = ['11L']
+OPTION_1 = 'Color'
+OPTION_2 = 'Size'
 
 def create_product():
     print('Create Product Starting Now. ')
@@ -184,11 +186,11 @@ def create_product_variants_and_options():
 def get_options(color_names): 
     return [
         {
-        "name": "Color",
+        "name": OPTION_1,
         "values": color_names
         },
         {
-        "name": "Size",
+        "name": OPTION_2,
         "values": SIZES
         }
     ]

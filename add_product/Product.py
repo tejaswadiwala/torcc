@@ -22,3 +22,11 @@ class Product:
             self.product_type = 'Tote Bag'
             self.price = 24.99
             self.template_suffix = 'template-full-width-2'
+    
+    class ToteTshirtCoordSet:
+        def __init__(self):
+            self.title = ': Co-ord Set'
+            self.body_html = "<p>Introducing our Tote T-shirt Co-ord Set - a match made in style heaven!</p><ul><li>🌟 Perfectly Coordinated: Our Co-ord Set includes a matching design t-shirt and tote bag for a cohesive and fashionable look.</li><li>🎨 Eye-Catching Design: Both the t-shirt and tote bag feature a captivating design that combines colors, patterns, or graphics.</li><li>👕 Comfortable T-Shirt: The high-quality t-shirt offers a comfortable fit, perfect for everyday wear and adding a touch of flair.</li><li>👜 Versatile Tote Bag: The stylish tote bag is not only a fashion accessory but also a practical companion with ample space and sturdy handles.</li><li>💃 Effortless Style: Achieve a coordinated look effortlessly without the hassle of searching for matching pieces.</li><li>🎁 Perfect Gift: The Co-ord Set makes a unique and thoughtful gift, showcasing impeccable taste.</li></ul><p>Elevate your style game with our Co-ord Set - the perfect combination for those who crave fashion-forward looks with ease. Get ready to turn heads and make a statement!</p>"
+            self.product_type = 'Co-ord Set'
+            self.price = 29.99
+            self.template_suffix = 'template-full-width-2'
