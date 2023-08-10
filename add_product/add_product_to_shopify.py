@@ -21,10 +21,10 @@ headers = sc.headers
 auth = (api_key, password)
 
 # Change the product below to the required Product
-product = Product.ToteTshirtCoordSet()
+product = Product.Hoodies()
 
-NAME = 'Inspire'
-SIZES = ['11L']
+NAME = 'Do What Makes You Happy'
+SIZES = ['Small', 'Medium', 'Large', 'X Large']
 OPTION_1 = 'Color'
 OPTION_2 = 'Size'
 
@@ -107,11 +107,19 @@ def update_product_variants(product_id, image_info_mapping):
 
         # Loop through the existing variants and update the price and inventory_quantity
         for variant in variants:
-            variant_data = {
-                'id': variant['id'],
-                'price': product.price, 
-                'image_id': image_info_mapping[variant['option1']]
-            }
+            if product.compare_at_price == 0:
+                variant_data = {
+                    'id': variant['id'],
+                    'price': product.price,
+                    'image_id': image_info_mapping[variant['option1']]
+                }
+            else:
+                variant_data = {
+                    'id': variant['id'],
+                    'price': product.price,
+                    'compare_at_price': product.compare_at_price,
+                    'image_id': image_info_mapping[variant['option1']]
+                }
             put_endpoint = f'https://{shopify_domain}/admin/api/2023-04/variants/{variant["id"]}.json'
             response = requests.put(put_endpoint, headers=headers, auth=auth, json={'variant': variant_data})
             if variant['inventory_quantity'] < 50:
