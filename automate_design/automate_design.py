@@ -4,7 +4,7 @@ from PIL import Image
 from Product import Product
 
 # Set the product directory
-PRODUCT = Product.ToteBags()
+PRODUCT = Product.Hoodies.Back()
 
 # Set up the design image
 design_path = "automate_design/designs/design_1.png"
@@ -55,6 +55,9 @@ def get_max_width_height(clothing_image):
     elif PRODUCT.dir_name == 'tote_bags':
         max_width = clothing_image.size[0] / 1.8
         max_height = int(clothing_image.size[1] / 2)
+    elif PRODUCT.dir_name == 'hoodies/back':
+        max_width = clothing_image.size[0] / 3
+        max_height = int(clothing_image.size[1] / 2)
     else:
         max_width = int(clothing_image.size[0] / 2)
         max_height = int(clothing_image.size[1] / 2)
@@ -63,6 +66,11 @@ def get_max_width_height(clothing_image):
 def get_design_postion(clothing_image):
     if PRODUCT.dir_name == 'tote_bags':
         return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.40))
-    return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
+    elif PRODUCT.dir_name == 'hoodies/front':
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.8))
+    elif PRODUCT.dir_name == 'hoodies/back':
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.65))
+    else:
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
 
 automate_design()
