@@ -10,3 +10,11 @@ class Product:
     class ToteBags:
         def __init__(self):
             self.dir_name = 'tote_bags'
+    
+    class Hoodies:
+        class Front: 
+            def __init__(self):
+                self.dir_name = 'hoodies/front'
+        class Back: 
+            def __init__(self):
+                self.dir_name = 'hoodies/back'
