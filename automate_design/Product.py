@@ -18,3 +18,6 @@ class Product:
         class Back: 
             def __init__(self):
                 self.dir_name = 'hoodies/back'
+    class Sweatshirts:
+        def __init__(self):
+            self.dir_name = 'sweatshirts'

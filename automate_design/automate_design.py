@@ -4,7 +4,7 @@ from PIL import Image
 from Product import Product
 
 # Set the product directory
-PRODUCT = Product.Hoodies.Back()
+PRODUCT = Product.Sweatshirts()
 
 # Set up the design image
 design_path = "automate_design/designs/design_1.png"
@@ -70,6 +70,8 @@ def get_design_postion(clothing_image):
         return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.8))
     elif PRODUCT.dir_name == 'hoodies/back':
         return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 1.65))
+    elif PRODUCT.dir_name == 'sweatshirts':
+        return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2.3))
     else:
         return (int((clothing_image.size[0] - design_image.size[0]) / 2), int((clothing_image.size[1] - design_image.size[1]) / 2))
 

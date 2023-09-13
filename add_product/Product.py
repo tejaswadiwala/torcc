@@ -1,4 +1,4 @@
-TEMPLATE_SUFFIX = 'template-left-thumbs'
+TEMPLATE_SUFFIX = 'template-right-thumbs'
 
 class Product:
     class ClassicTee:
@@ -44,4 +44,24 @@ class Product:
             self.product_type = 'Hoodie'
             self.price = 44.99
             self.compare_at_price = 79.99
+            self.template_suffix = TEMPLATE_SUFFIX
+    
+    class Sweatshirts:
+        def __init__(self):
+            self.title = ': Graphic Sweatshirt For Men and Women'
+            self.body_html = """
+                <p>Introducing our TORCC Graphic Sweatshirt - The Ultimate Pop Culture Statement!</p>
+                <ul>
+                    <li>🔥 Trendy and Cozy: Our TORCC Graphic Sweatshirt combines the latest pop culture trends with ultimate comfort, making it your go-to choice for any occasion.</li>
+                    <li>🎨 Stylish Design: Embrace your inner pop culture enthusiast with our eye-catching and unique design that sets you apart from the crowd.</li>
+                    <li>🧥 Premium Quality: Crafted from high-quality materials, the TORCC Graphic Sweatshirt offers a soft and luxurious feel that keeps you warm and cozy while representing your favorite pop culture icons.</li>
+                    <li>🌦️ All-Weather Pop Culture: Whether you're binge-watching your favorite shows or heading out to a convention, this sweatshirt is your all-weather companion for celebrating your pop culture passions.</li>
+                    <li>🎉 Versatile Wardrobe Essential: Pair it with jeans, leggings, or your favorite cosplay outfit - the TORCC Graphic Sweatshirt effortlessly blends with your unique style.</li>
+                    <li>🎁 Perfect Gift: Looking for the ideal gift for fellow pop culture enthusiasts? Look no further! The TORCC Graphic Sweatshirt is the perfect choice for fans who value style, comfort, and fandom pride.</li>
+                </ul>
+                <p>Elevate your pop culture game with our TORCC Graphic Sweatshirt - the perfect blend of fandom and fashion. Make a statement that celebrates your favorite characters and stories in style!</p>
+            """
+            self.product_type = 'Sweatshirt'
+            self.price = 39.99
+            self.compare_at_price = 39.99
             self.template_suffix = TEMPLATE_SUFFIX
