@@ -12,12 +12,17 @@ class Product:
             self.dir_name = 'tote_bags'
     
     class Hoodies:
+        class India:
+            class Front:
+                def __init__(self):
+                    self.dir_name = 'hoodies/india/front'
         class Front: 
             def __init__(self):
                 self.dir_name = 'hoodies/front'
         class Back: 
             def __init__(self):
                 self.dir_name = 'hoodies/back'
+
     class Sweatshirts:
         def __init__(self):
             self.dir_name = 'sweatshirts'
