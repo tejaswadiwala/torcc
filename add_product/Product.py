@@ -44,7 +44,7 @@ class Product:
             self.product_type = 'Hoodie'
             self.price = 44.99
             self.compare_at_price = 79.99
-            self.template_suffix = TEMPLATE_SUFFIX
+            self.template_suffix = 'hoodie'
     
     class Sweatshirts:
         def __init__(self):
@@ -64,4 +64,4 @@ class Product:
             self.product_type = 'Sweatshirt'
             self.price = 39.99
             self.compare_at_price = 39.99
-            self.template_suffix = TEMPLATE_SUFFIX
+            self.template_suffix = 'sweatshirt'
