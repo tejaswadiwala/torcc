@@ -21,10 +21,10 @@ headers = sc.headers
 auth = (api_key, password)
 
 # Change the product below to the required Product
-product = Product.Sweatshirts()
+product = Product.Hoodies()
 
 NAME = 'Smile'
-SIZES = ['Small', 'Medium', 'Large', 'X Large']
+SIZES = ['Small', 'Medium', 'Large', 'X Large', '2X Large', '3X Large', '4X Large']
 OPTION_1 = 'Color'
 OPTION_2 = 'Size'
 
