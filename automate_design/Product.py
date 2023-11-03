@@ -16,6 +16,9 @@ class Product:
             class Front:
                 def __init__(self):
                     self.dir_name = 'hoodies/india/front'
+            class Back:
+                def __init__(self):
+                    self.dir_name = 'hoodies/india/back'
         class Front: 
             def __init__(self):
                 self.dir_name = 'hoodies/front'
@@ -24,5 +27,9 @@ class Product:
                 self.dir_name = 'hoodies/back'
 
     class Sweatshirts:
-        def __init__(self):
-            self.dir_name = 'sweatshirts'
+        class Front:
+            def __init__(self):
+                self.dir_name = 'sweatshirts/front'
+        class Back:
+            def __init__(self):
+                self.dir_name = 'sweatshirts/back'
