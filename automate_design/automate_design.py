@@ -64,6 +64,9 @@ def get_max_width_height(clothing_image):
     elif PRODUCT.dir_name == 'sweatshirts/back':
         max_width = clothing_image.size[0] / 3
         max_height = clothing_image.size[1] / 3
+    elif PRODUCT.dir_name == 'sweatshirts/front':
+        max_width = clothing_image.size[0] / 2.5
+        max_height = clothing_image.size[1] / 2.5
     else:
         max_width = int(clothing_image.size[0] / 2)
         max_height = int(clothing_image.size[1] / 2)
