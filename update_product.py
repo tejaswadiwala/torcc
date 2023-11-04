@@ -4,11 +4,10 @@ from shopify_creds import ShopifyCreds
 shopify_creds = ShopifyCreds()
 
 UPDATE_ALL_PRODUCTS = False
-PRODUCT_TITLE_TO_BE_CHECKED = 'sweatshirt'
-TEMPLATE_SUFFIX = 'sweatshirt'
+PRODUCT_TITLE_TO_BE_CHECKED = 'inventory blowout sale'
 DATA = {
         'product': {
-            'template_suffix': TEMPLATE_SUFFIX
+            'status': 'draft'
         }
     }
 
@@ -66,7 +65,7 @@ def update_product(products=None):
                 url = f'https://{shopify_creds.api_key}:{shopify_creds.api_password}@{shopify_creds.shop_name}.myshopify.com/admin/api/2020-04/products/{product_id}.json'
                 response = requests.put(url, json=DATA, headers=shopify_creds.headers)
                 if response.status_code == 200:
-                    print(f'Product updated successfully for product: {product_id}')
+                    print(f"Product updated successfully for product: {product_id}, {product['title']}")
                 else:
                     response.raise_for_status()
         print(f'Completed updating products.')
