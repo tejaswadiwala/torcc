@@ -68,7 +68,19 @@ def main():
     total_row = pd.DataFrame([{col: total_pnl if col == "P&L" else (total_orders if col == "Name" else "") for col in merged_df.columns}])
     merged_df = pd.concat([merged_df, total_row], ignore_index=True)
 
-    final_df = merged_df[["Live Date", "Name", "Order Date", "Status", "Status New", "Total", "Shipping_y", "Order_Cost_Price", "Order_Shipping", "GST on Total", "GST on Shipping", "GST on Order_Cost_Price", "GST on Order_Shipping", "P&L"]]
-    final_df.to_csv("bookkeeping/monthly_pnl_torcc.csv", index=False)
+    merged_df = merged_df.rename(columns={
+        'Total': 'Selling Price',
+        'Shipping_y': 'Selling Shipping',
+        'Order_Cost_Price': 'Cost Price',
+        'Order_Shipping': 'Cost Shipping',
+        'GST on Total': 'GST on Selling Price',
+        'GST on Shipping': 'GST on Selling Shipping',
+        'GST on Order_Cost_Price': 'GST on Cost Price',
+        'GST on Order_Shipping': 'GST on Cost Shipping',
+        'P&L': 'P&L (Selling Price - Cost Price)'
+    })
+
+    final_df = merged_df[["Live Date", "Name", "Order Date", "Status", "Status New", "Selling Price", "Selling Shipping", "Cost Price", "Cost Shipping", "GST on Selling Price", "GST on Selling Shipping", "GST on Cost Price", "GST on Cost Shipping", "P&L (Selling Price - Cost Price)"]]
+    final_df.to_csv("bookkeeping/torcc_monthly_pnl.csv", index=False)
 
 main()
